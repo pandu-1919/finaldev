@@ -25,7 +25,8 @@ pipeline {
         stage('Run image (smoke)') {
             steps {
                 bat 'docker run -d --name simple-swiggy-test -p 5000:5000 simple-swiggy'
-                bat 'timeout /t 5'
+                // wait 5 seconds for container startup
+                bat 'powershell -Command "Start-Sleep -Seconds 5"'
                 bat 'curl http://localhost:5000 || exit 0'
                 bat 'docker rm -f simple-swiggy-test'
             }
