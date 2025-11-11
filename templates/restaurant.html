@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h2>{{ restaurant.name }}</h2>
+  <p>{{ restaurant.cuisine }}</p>
+  <div class="menu">
+    <form method="post" action="/add_to_cart">
+      {% for item in restaurant.menu %}
+        <div class="menu-item">
+          <strong>{{ item.name }}</strong> — ₹{{ item.price }}
+          <input type="hidden" name="item_id" value="{{ item.id }}">
+          <input type="hidden" name="r_id" value="{{ restaurant.id }}">
+          <input type="hidden" name="name" value="{{ item.name }}">
+          <input type="hidden" name="price" value="{{ item.price }}">
+          <button type="submit">Add to cart</button>
+        </div>
+      {% endfor %}
+    </form>
+  </div>
+{% endblock %}

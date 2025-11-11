@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h2>Restaurants</h2>
+  <div class="grid">
+    {% for r in restaurants %}
+      <div class="card">
+        <h3>{{ r.name }}</h3>
+        <p>{{ r.cuisine }}</p>
+        <a href="/restaurant/{{ r.id }}">View Menu</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

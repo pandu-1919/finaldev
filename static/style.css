@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 1rem; }
+header { display:flex; align-items:center; gap:1rem; }
+header h1 { margin:0; }
+.cart-link { margin-left:auto; }
+.grid { display:flex; gap:1rem; }
+.card { border:1px solid #eee; padding:1rem; border-radius:6px; }
+.menu-item { margin-bottom:0.5rem; }

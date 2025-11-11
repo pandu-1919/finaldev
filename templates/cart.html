@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h2>Your Cart</h2>
+  {% if cart|length == 0 %}
+    <p>Cart is empty.</p>
+  {% else %}
+    <ul>
+      {% for item in cart %}
+        <li>{{ item.name }} — ₹{{ item.price }}</li>
+      {% endfor %}
+    </ul>
+    <p><strong>Total: ₹{{ total }}</strong></p>
+    <form method="post" action="/clear_cart">
+      <button type="submit">Clear cart</button>
+    </form>
+  {% endif %}
+{% endblock %}
